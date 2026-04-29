@@ -1,0 +1,499 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Session - HiTherapy</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/book.css">
+</head>
+
+<body>
+    <!-- Sticky Header -->
+    <header class="sticky-header">
+        <div class="header-container">
+            <a href="index.html" class="logo">HiTherapy</a>
+            <nav class="header-nav">
+                <a href="index.html#services">Services</a>
+                <a href="index.html#process">How It Works</a>
+                <a href="index.html#about">About</a>
+                <a href="index.html#testimonials">Testimonials</a>
+                <a href="index.html#faq">FAQ</a>
+                <button class="btn btn-primary btn-sm">Book Session</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Booking Section -->
+    <main class="booking-page">
+        <div class="container">
+            <div class="booking-grid">
+
+                <!-- LEFT: Booking Form -->
+                <div class="booking-form-section">
+                    <div class="page-header">
+                        <div class="page-label">Schedule Your Visit</div>
+                        <h1 class="h1">Book Your <em class="text-primary">Appointment</em></h1>
+                        <p class="page-subtitle">Fill out the form below and our team will confirm your session within 1
+                            business day. For urgent concerns, call us directly at <strong
+                                style="color: var(--color-primary);">+1 (415) 555-1234</strong>.</p>
+                    </div>
+
+                    <form id="booking-form" novalidate style="position: relative;">
+                        <!-- Success Overlay -->
+                        <div class="success-overlay" id="success-overlay">
+                            <div class="success-content">
+                                <div class="success-icon">
+                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                                        <path d="M9 16l2 2 4-4"></path>
+                                    </svg>
+                                </div>
+                                <h2 class="h2" margin-bottom: 16px;">Appointment Requested!</h2>
+                                <p style="font-size: 18px; line-height: 1.6; margin-bottom: 32px;">
+                                    Thank you!
+                                    We've received your request and will contact you within <strong>1 business
+                                        day</strong>
+                                    to confirm your
+                                    appointment details.</p>
+                                <a href="index.html" class="btn btn-primary btn-lg" style="color: white;">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" style="margin-right: 8px;">
+                                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                                        <polyline points="12 19 5 12 12 5"></polyline>
+                                    </svg>
+                                    Back to Home
+                                </a>
+                            </div>
+                        </div>
+                        <div class="wizard-progress">
+                            <div class="progress-track">
+                                <div class="progress-fill" id="progress-fill"></div>
+                            </div>
+                            <div class="step-indicators">
+                                <div class="step-dot active" data-step="1">1</div>
+                                <div class="step-dot" data-step="2">2</div>
+                                <div class="step-dot" data-step="3">3</div>
+                                <div class="step-dot" data-step="4">4</div>
+                            </div>
+                        </div>
+
+                        <div class="wizard-step active" data-step="1">
+                            <div class="form-section">
+                                <h2 class="form-section-title">Personal Information</h2>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label" for="full-name">Full Name <span
+                                                class="req">*</span></label>
+                                        <input type="text" id="full-name" name="full_name" class="form-input"
+                                            placeholder="Jane Smith" required>
+                                        <span class="form-error" id="err-name">Please enter your full name</span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="email">Email Address <span
+                                                class="req">*</span></label>
+                                        <input type="email" id="email" name="email" class="form-input"
+                                            placeholder="jane@email.com" required>
+                                        <span class="form-error" id="err-email">Please enter a valid email</span>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label" for="phone">Phone Number <span
+                                                class="req">*</span></label>
+                                        <input type="tel" id="phone" name="phone" class="form-input"
+                                            placeholder="(415) 555-0123" required>
+                                        <span class="form-error" id="err-phone">Please enter your phone number</span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="dob">Date of Birth <span
+                                                class="req">*</span></label>
+                                        <input type="date" id="dob" name="dob" class="form-input" required>
+                                        <span class="form-error" id="err-dob">Please enter your date of birth</span>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label" for="patient-type">Patient Type <span
+                                                class="req">*</span></label>
+                                        <select id="patient-type" name="patient_type" class="form-select" required>
+                                            <option value="" disabled selected>Select...</option>
+                                            <option value="new">New Patient</option>
+                                            <option value="existing">Existing Patient</option>
+                                        </select>
+                                        <span class="form-error" id="err-patient">Please select patient type</span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="preferred-contact">Preferred Contact
+                                            Method</label>
+                                        <select id="preferred-contact" name="preferred_contact" class="form-select">
+                                            <option value="email">Email</option>
+                                            <option value="phone">Phone Call</option>
+                                            <option value="sms">SMS/Text</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="wizard-step" data-step="2">
+                            <div class="form-section">
+                                <h2 class="form-section-title">Insurance & Coverage</h2>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label" for="insurance">Insurance Provider</label>
+                                        <select id="insurance" name="insurance" class="form-select">
+                                            <option value="" disabled selected>Select provider...</option>
+                                            <option>Aetna</option>
+                                            <option>Blue Cross Blue Shield</option>
+                                            <option>Cigna</option>
+                                            <option>Humana</option>
+                                            <option>Medicare</option>
+                                            <option>UnitedHealthcare</option>
+                                            <option>Other</option>
+                                            <option>Self-Pay / No Insurance</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="insurance-id">Member ID / Policy Number</label>
+                                        <input type="text" id="insurance-id" name="insurance_id" class="form-input"
+                                            placeholder="Optional">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="wizard-step" data-step="3">
+                            <div class="form-section">
+                                <h2 class="form-section-title">Service & Focus Area</h2>
+                                <div class="form-group">
+                                    <label class="form-label">What type of support are you looking for? <span
+                                            class="req">*</span></label>
+                                    <div class="service-picker" id="service-picker">
+                                        <div class="svc-pill" data-svc="Individual Therapy">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                                <circle cx="12" cy="7" r="4"></circle>
+                                            </svg>
+                                            <span>Individual Therapy</span>
+                                            <svg class="svc-pill-check" width="14" height="14" viewBox="0 0 24 24"
+                                                fill="none" stroke="currentColor" stroke-width="3">
+                                                <polyline points="20 6 9 17 4 12"></polyline>
+                                            </svg>
+                                        </div>
+                                        <div class="svc-pill" data-svc="Couples Therapy">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                                <circle cx="9" cy="7" r="4"></circle>
+                                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                            </svg>
+                                            <span>Couples Therapy</span>
+                                            <svg class="svc-pill-check" width="14" height="14" viewBox="0 0 24 24"
+                                                fill="none" stroke="currentColor" stroke-width="3">
+                                                <polyline points="20 6 9 17 4 12"></polyline>
+                                            </svg>
+                                        </div>
+                                        <div class="svc-pill" data-svc="Family Therapy">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                                            </svg>
+                                            <span>Family Therapy</span>
+                                            <svg class="svc-pill-check" width="14" height="14" viewBox="0 0 24 24"
+                                                fill="none" stroke="currentColor" stroke-width="3">
+                                                <polyline points="20 6 9 17 4 12"></polyline>
+                                            </svg>
+                                        </div>
+                                        <div class="svc-pill" data-svc="Group Programs">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                                <circle cx="9" cy="7" r="4"></circle>
+                                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                            </svg>
+                                            <span>Group Programs</span>
+                                            <svg class="svc-pill-check" width="14" height="14" viewBox="0 0 24 24"
+                                                fill="none" stroke="currentColor" stroke-width="3">
+                                                <polyline points="20 6 9 17 4 12"></polyline>
+                                            </svg>
+                                        </div>
+                                        <div class="svc-pill" data-svc="Telehealth">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <polygon points="23 7 16 12 23 17 23 7"></polygon>
+                                                <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+                                            </svg>
+                                            <span>Telehealth</span>
+                                            <svg class="svc-pill-check" width="14" height="14" viewBox="0 0 24 24"
+                                                fill="none" stroke="currentColor" stroke-width="3">
+                                                <polyline points="20 6 9 17 4 12"></polyline>
+                                            </svg>
+                                        </div>
+                                        <div class="svc-pill" data-svc="Assessment">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z">
+                                                </path>
+                                                <polyline points="14 2 14 8 20 8"></polyline>
+                                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                                <polyline points="10 9 9 9 8 9"></polyline>
+                                            </svg>
+                                            <span>Initial Assessment</span>
+                                            <svg class="svc-pill-check" width="14" height="14" viewBox="0 0 24 24"
+                                                fill="none" stroke="currentColor" stroke-width="3">
+                                                <polyline points="20 6 9 17 4 12"></polyline>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <span class="form-error" id="err-service">Please select at least one service</span>
+                                </div>
+                                <div class="form-group" style="margin-top: 24px;">
+                                    <label class="form-label" for="concerns">Primary Concerns (Optional)</label>
+                                    <textarea id="concerns" name="concerns" class="form-textarea" rows="4"
+                                        placeholder="Briefly describe what brings you to therapy..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="wizard-step" data-step="4">
+                            <div class="form-section">
+                                <h2 class="form-section-title">Preferred Date & Time</h2>
+                                <div class="form-group">
+                                    <label class="form-label">Select a Date <span class="req">*</span></label>
+                                    <div class="date-grid" id="date-grid">
+                                    </div>
+                                    <span class="form-error" id="err-date">Please select a date</span>
+                                </div>
+                                <div class="form-group" style="margin-top: 24px;">
+                                    <label class="form-label">Available Times <span class="req">*</span></label>
+                                    <div class="time-grid" id="time-grid">
+                                        <div class="time-slot" data-time="8:00 AM">8:00 AM</div>
+                                        <div class="time-slot" data-time="9:00 AM">9:00 AM</div>
+                                        <div class="time-slot busy" data-time="10:00 AM">10:00 AM</div>
+                                        <div class="time-slot" data-time="11:00 AM">11:00 AM</div>
+                                        <div class="time-slot" data-time="1:00 PM">1:00 PM</div>
+                                        <div class="time-slot busy" data-time="2:00 PM">2:00 PM</div>
+                                        <div class="time-slot" data-time="3:00 PM">3:00 PM</div>
+                                        <div class="time-slot" data-time="4:00 PM">4:00 PM</div>
+                                        <div class="time-slot" data-time="5:00 PM">5:00 PM</div>
+                                    </div>
+                                    <span class="form-error" id="err-time">Please select a time</span>
+                                </div>
+                            </div>
+
+                            <div class="form-section">
+                                <div class="consent-row">
+                                    <div class="consent-check">
+                                        <input type="checkbox" id="consent" name="consent" required>
+                                        <span class="checkmark"></span>
+                                    </div>
+                                    <div class="consent-text">
+                                        I understand that this form submits a <strong>request</strong> — not a confirmed
+                                        appointment. I agree to the <a href="#">Privacy Policy</a> and <a href="#">Terms
+                                            of Service</a>. <span class="req">*</span>
+                                    </div>
+                                </div>
+                                <div class="consent-row" style="margin-top: 16px;">
+                                    <div class="consent-check">
+                                        <input type="checkbox" id="sms-opt" name="sms_opt">
+                                        <span class="checkmark"></span>
+                                    </div>
+                                    <div class="consent-text">
+                                        I consent to receive SMS reminders about my appointment.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="wizard-nav">
+                            <button type="button" class="btn btn-secondary" id="btn-prev"
+                                style="display: none;">Back</button>
+                            <button type="button" class="btn btn-primary" id="btn-next">Next Step</button>
+                            <button type="submit" class="btn btn-primary btn-submit" id="btn-submit"
+                                style="display: none;">Request Appointment</button>
+                        </div>
+                    </form>
+
+                </div>
+
+                <!-- RIGHT: Sidebar Summary -->
+                <aside class="booking-sidebar">
+                    <div class="sidebar-card">
+                        <div class="sidebar-card-title">Your Booking Summary</div>
+                        <div class="summary-row">
+                            <span class="summary-label">Patient</span>
+                            <span class="summary-val empty" id="sum-name">Not entered</span>
+                        </div>
+                        <div class="summary-row">
+                            <span class="summary-label">Service</span>
+                            <span class="summary-val empty" id="sum-service">Not selected</span>
+                        </div>
+                        <div class="summary-row">
+                            <span class="summary-label">Date</span>
+                            <span class="summary-val empty" id="sum-date">Not selected</span>
+                        </div>
+                        <div class="summary-row">
+                            <span class="summary-label">Time</span>
+                            <span class="summary-val empty" id="sum-time">Not selected</span>
+                        </div>
+                        <div class="summary-row">
+                            <span class="summary-label">Type</span>
+                            <span class="summary-val empty" id="sum-type">Not selected</span>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-card" style="display: none;">
+                        <div class="sidebar-card-title">Clinic Information</div>
+                        <div class="contact-item">
+                            <svg class="contact-icon" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            <div>
+                                <strong>Address</strong>
+                                <p>123 Wellness Street, Suite 300<br>San Francisco, CA 94102</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <svg class="contact-icon" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                </path>
+                            </svg>
+                            <div>
+                                <strong>Phone</strong>
+                                <p><a href="tel:+14155551234">+1 (415) 555-1234</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <svg class="contact-icon" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                            <div>
+                                <strong>Hours</strong>
+                                <p>Mon–Fri: 8:00 AM – 7:00 PM<br>Sat: 9:00 AM – 3:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-card" style="display: none;">
+                        <div class="sidebar-card-title">Why Choose HiTherapy</div>
+                        <div class="trust-list">
+                            <div class="trust-item">
+                                <div class="trust-icon">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <strong>Licensed & Certified</strong>
+                                    <span>State board approved therapists</span>
+                                </div>
+                            </div>
+                            <div class="trust-item">
+                                <div class="trust-icon">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <polygon
+                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                                        </polygon>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <strong>4.9★ Average Rating</strong>
+                                    <span>From 500+ verified reviews</span>
+                                </div>
+                            </div>
+                            <div class="trust-item">
+                                <div class="trust-icon">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <polygon points="23 7 16 12 23 17 23 7"></polygon>
+                                        <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <strong>Flexible Options</strong>
+                                    <span>In-person & virtual sessions</span>
+                                </div>
+                            </div>
+                            <div class="trust-item">
+                                <div class="trust-icon">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <strong>100% Confidential</strong>
+                                    <span>HIPAA-compliant & secure</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+
+
+    <!-- Footer -->
+    <footer class="footer" style="margin-top: 0;">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>HiTherapy</h4>
+                    <p>Professional therapy services designed to support your mental health journey and wellbeing.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="index.html#testimonials">Testimonials</a></li>
+                        <li><a href="index.html#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul class="contact-info">
+                        <li><a href="tel:+14155551234">+1 (415) 555-1234</a></li>
+                        <li><a href="mailto:hello@hitherapy.com">hello@hitherapy.com</a></li>
+                        <li>San Francisco, CA</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 HiTherapy. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/book.js"></script>
+</body>
+
+</html>
